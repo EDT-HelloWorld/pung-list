@@ -230,7 +230,7 @@ export class View {
       $li.classList.add("task-unit");
       $li.innerHTML = `
         <span class="task-name">${task.getName()}</span>
-        <span class="task-time">${task.getTime()}</span>
+        <span class="task-time">${task.getTime()} 초</span>
         <button class="btn increase-timer">+5초</button>
         <button class="btn task-stop ${
           task.getPlay() ? "" : "hide"

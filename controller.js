@@ -101,7 +101,7 @@ class Controller {
   duplicateTasks() {
     const tasks = this.tasksTimer.getTasks();
     tasks.forEach((task) => {
-      this.tasksTimer.pushTask(task.name, task.time);
+      this.tasksTimer.pushTask(task.getName(), task.getTime());
     });
     this.tasksTimer.sortTasks();
     this.updateView();
