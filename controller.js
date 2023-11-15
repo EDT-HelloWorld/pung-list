@@ -111,14 +111,14 @@ class Controller {
   stopTask(id) {
     const task = this.tasksTimer.findTaskById(id);
     task.stop();
-    this.view.renderStartButton(task.getId());
+    this.updateView();
   }
 
   // task 시작
   startTask(id) {
     const task = this.tasksTimer.findTaskById(id);
     task.start();
-    this.view.renderStopButton(task.getId());
+    this.updateView();
   }
 }
 

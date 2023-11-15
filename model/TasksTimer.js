@@ -51,7 +51,7 @@ export class TasksTimer {
 
   removeTask(task) {
     this.tasks = this.tasks.filter((t) => t !== task);
-    this.totalTime -= task.time;
+    this.totalTime -= task.getTime();
   }
 
   updateTask(task, time) {
