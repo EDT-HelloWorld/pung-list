@@ -57,7 +57,7 @@ export class View {
     this.$taskUnit = document.querySelectorAll(".task-unit");
   }
 
-  // task 추가 이벤트
+  // 할일 추가 이벤트
   bindAddTask(handler) {
     this.$buttonAddFiveSeconds.addEventListener("click", (e) => {
       e.preventDefault();
@@ -76,23 +76,7 @@ export class View {
     });
   }
 
-  // total task 초기화
-  bindResetTotalTask(handler) {
-    this.$buttonTotalReset.addEventListener("click", (e) => {
-      e.preventDefault();
-      handler();
-    });
-  }
-
-  // total task 복사
-  bindCopyTotalTask(handler) {
-    this.$buttonTotalCopyTasks.addEventListener("click", (e) => {
-      e.preventDefault();
-      handler();
-    });
-  }
-
-  // total task 타이머 증가
+  // 전체 타이머 증가 이벤트 넣기
   bindIncreaseTotalTimer(handler) {
     this.$buttonTotalIncreaseTimer.addEventListener("click", (e) => {
       e.preventDefault();
@@ -100,15 +84,7 @@ export class View {
     });
   }
 
-  // total task 타이머 정지
-  bindStopTotalTimer(handler) {
-    this.$buttonTotalStop.addEventListener("click", (e) => {
-      e.preventDefault();
-      handler();
-    });
-  }
-
-  // total task 타이머 시작
+  // 전체 시작 버튼 이벤트 넣기
   bindStartTotalTimer(handler) {
     this.$buttonTotalStart.addEventListener("click", (e) => {
       e.preventDefault();
@@ -116,15 +92,7 @@ export class View {
     });
   }
 
-  // total start 시작 버튼 이벤트 넣기
-  bindStartTotalTimer(handler) {
-    this.$buttonTotalStart.addEventListener("click", (e) => {
-      e.preventDefault();
-      handler();
-    });
-  }
-
-  // total stop 시작 버튼 이벤트 넣기
+  // 전체 정지 버튼 이벤트 넣기
   bindStopTotalTimer(handler) {
     this.$buttonTotalStop.addEventListener("click", (e) => {
       e.preventDefault();
@@ -132,6 +100,7 @@ export class View {
     });
   }
 
+  // 전체 타이머 증가 버튼 이벤트 넣기
   bindIncreaseTotalTimer(handler) {
     this.$buttonTotalIncreaseTimer.addEventListener("click", (e) => {
       e.preventDefault();
@@ -139,6 +108,7 @@ export class View {
     });
   }
 
+  // 전체 할일 복제하기 이벤트 넣기
   bindDuplicateTasks(handler) {
     this.$buttonTotalCopyTasks.addEventListener("click", (e) => {
       e.preventDefault();
@@ -146,6 +116,7 @@ export class View {
     });
   }
 
+  // 전체 할일 초기화 이벤트 넣기
   bindInitTasks(handler) {
     this.$buttonTotalReset.addEventListener("click", (e) => {
       e.preventDefault();
@@ -153,6 +124,7 @@ export class View {
     });
   }
 
+  // 단위 타이머 증가 이벤트 넣기
   bindIncreaseUnitTaskTimer(handler) {
     this.$taskList.addEventListener("click", (e) => {
       if (!e.target.classList.contains("increase-timer")) return;
@@ -162,6 +134,7 @@ export class View {
     });
   }
 
+  // 단위 삭제 이벤트 넣기
   bindRemoveUnitTask(handler) {
     this.$taskList.addEventListener("click", (e) => {
       if (!e.target.classList.contains("task-delete")) return;
@@ -171,6 +144,7 @@ export class View {
     });
   }
 
+  // 단위 타이머 정지 이벤트 넣기
   bindStopUnitTaskTimer(handler) {
     this.$taskList.addEventListener("click", (e) => {
       e.preventDefault();
@@ -182,6 +156,7 @@ export class View {
     });
   }
 
+  // 단위 타이머 시작 이벤트 넣기
   bindStartUnitTaskTimer(handler) {
     this.$taskList.addEventListener("click", (e) => {
       e.preventDefault();
@@ -193,35 +168,38 @@ export class View {
     });
   }
 
+  // 단위 타이머 시작 버튼 렌더링
   renderStartButton(id) {
     const $li = this.$taskList.querySelector(`#${id}`);
     $li.querySelector(`#stop-${id}`).classList.add("hide");
     $li.querySelector(`#start-${id}`).classList.remove("hide");
   }
 
+  // 단위 타이머 정지 버튼 렌더링
   renderStopButton(id) {
     const $li = this.$taskList.querySelector(`#${id}`);
     $li.querySelector(`#stop-${id}`).classList.remove("hide");
     $li.querySelector(`#start-${id}`).classList.add("hide");
   }
 
+  // 데이터 업데이트 반영 렌더링
   readerUpdate(tasks, averageTime) {
     this.#renderTasks(tasks);
     this.#renderTotalCount(tasks.length);
     this.#renderAverageTime(averageTime);
   }
 
-  // total count 변경
+  // 총 할일 수 렌더링
   #renderTotalCount(count) {
     this.$totalCount.textContent = count;
   }
 
-  // total average time 변경
+  // 전체 평균 남은 시간 렌더링
   #renderAverageTime(averageTime) {
     this.$totalAverageTime.textContent = averageTime.toFixed(1);
   }
 
-  // rander tasks
+  // 단위 할일 렌더링
   #renderTasks(tasks) {
     this.$taskList.innerHTML = "";
     tasks.forEach((task) => {

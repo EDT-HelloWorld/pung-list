@@ -1,4 +1,3 @@
-import { Task } from "./model/task.js";
 import { TasksTimer } from "./model/tasksTimer.js";
 import { View } from "./view/View.js";
 
