@@ -229,15 +229,15 @@ export class View {
       $li.id = task.getId();
       $li.classList.add("task-unit");
       $li.innerHTML = `
-        <span class="task-name">${task.name}</span>
-        <span class="task-time">${task.time}</span>
+        <span class="task-name">${task.getName()}</span>
+        <span class="task-time">${task.getTime()}</span>
         <button class="btn increase-timer">+5초</button>
         <button class="btn task-stop ${
           task.getPlay() ? "" : "hide"
-        }" id=\"stop-${task.id}\">중지</button>
+        }" id=\"stop-${task.getId()}\">중지</button>
         <button class="btn task-start ${
           task.getPlay() ? "hide" : ""
-        }" id=\"start-${task.id}\" >시작</button>
+        }" id=\"start-${task.getId()}\" >시작</button>
         <button class="btn task-delete">삭제</button>
       `;
       this.$taskList.appendChild($li);

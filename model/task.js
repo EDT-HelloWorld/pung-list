@@ -1,36 +1,41 @@
 export class Task {
+  #id;
+  #name;
+  #time;
+  #play;
+
   constructor(id, name, time) {
-    this.id = `task-${id}`;
-    this.name = name;
-    this.time = time;
-    this.play = true;
+    this.#id = `task-${id}`;
+    this.#name = name;
+    this.#time = time;
+    this.#play = true;
   }
 
   getId() {
-    return this.id;
+    return this.#id;
   }
 
   getName() {
-    return this.name;
+    return this.#name;
   }
 
   getTime() {
-    return this.time;
+    return this.#time;
   }
 
   getPlay() {
-    return this.play;
+    return this.#play;
   }
 
   setTime(time) {
-    this.time = time;
+    this.#time = time;
   }
 
   stop() {
-    this.play = false;
+    this.#play = false;
   }
 
   start() {
-    this.play = true;
+    this.#play = true;
   }
 }

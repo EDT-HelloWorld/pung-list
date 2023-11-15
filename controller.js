@@ -28,7 +28,7 @@ class Controller {
     this.timer = setInterval(() => {
       const tasks = this.tasksTimer.getTasks();
       tasks.forEach((task) => {
-        if (task.play) {
+        if (task.getPlay() == true) {
           this.tasksTimer.updateTask(task, task.getTime() - 1);
           if (task.getTime() === 0) this.tasksTimer.removeTask(task);
         }
@@ -93,6 +93,7 @@ class Controller {
     this.tasksTimer.getTasks().forEach((task) => {
       this.tasksTimer.updateTask(task, task.getTime() + 5);
     });
+    this.tasksTimer.sortTasks();
     this.updateView();
   }
 

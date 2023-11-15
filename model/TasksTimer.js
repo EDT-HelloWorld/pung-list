@@ -31,7 +31,7 @@ export class TasksTimer {
   }
 
   sortTasks() {
-    this.tasks.sort((a, b) => a.time - b.time);
+    this.tasks.sort((a, b) => a.getTime() - b.getTime());
   }
 
   addTaskWithSort(name, time) {
