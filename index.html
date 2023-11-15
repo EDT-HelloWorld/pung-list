@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Pung-List</title>
   </head>
-  <body></body>
+  <body>
+    <h1>pung list</h1>
+    <section class="data-add-form">
+      <input type="text" id="input-add-name" />
+      <button class="btn" id="button-add-five-seconds">5초</button>
+      <button class="btn" id="button-add-ten-seconds">10초</button>
+      <button class="btn" id="button-add-twenty-seconds">20초</button>
+    </section>
+    <section class="total-live-state">
+      총: <span id="total-count">0</span> 건 평균 남은 시간:
+      <span id="total-average-time">0.0</span>
+      초
+    </section>
+    <section class="total-task-controller">
+      <button class="btn" id="button-total-reset">초기화</button>
+      <button class="btn" id="button-total-copy-tasks">x2</button>
+      <button class="btn" id="button-total-increase-timer">전체+5</button>
+      <button class="btn" id="button-total-stop">전체 중지</button>
+      <button class="btn" id="button-total-start">전체 시작</button>
+    </section>
+    <section class="content">
+      <ul class="live-table" id="task-list"></ul>
+    </section>
+    <script type="module" src="controller.js"></script>
+  </body>
 </html>
